@@ -142,6 +142,19 @@ void step1::Loop()
    inputTree->SetBranchStatus("HadronicVHtD2Phi_JetSubCalc",1);
    inputTree->SetBranchStatus("HadronicVHtD2E_JetSubCalc",1);
 
+   //genParticles
+   inputTree->SetBranchStatus("genPt_singleLepCalc",1);
+   inputTree->SetBranchStatus("genEta_singleLepCalc",1);
+   inputTree->SetBranchStatus("genPhi_singleLepCalc",1);
+   inputTree->SetBranchStatus("genEnergy_singleLepCalc",1);
+   inputTree->SetBranchStatus("genStatus_singleLepCalc",1);
+   inputTree->SetBranchStatus("genID_singleLepCalc",1);
+   inputTree->SetBranchStatus("genMotherID_singleLepCalc",1);
+   inputTree->SetBranchStatus("genJetPt_singleLepCalc",1);
+   inputTree->SetBranchStatus("genJetEta_singleLepCalc",1);
+   inputTree->SetBranchStatus("genJetPhi_singleLepCalc",1);
+   inputTree->SetBranchStatus("genJetEnergy_singleLepCalc",1);
+
    //JetSubCalc
    inputTree->SetBranchStatus("theJetHFlav_JetSubCalc",1);
    inputTree->SetBranchStatus("theJetPFlav_JetSubCalc",1);
@@ -149,10 +162,10 @@ void step1::Loop()
    inputTree->SetBranchStatus("theJetEta_JetSubCalc",1);
    inputTree->SetBranchStatus("theJetPhi_JetSubCalc",1);
    inputTree->SetBranchStatus("theJetEnergy_JetSubCalc",1);
-   inputTree->SetBranchStatus("theJetCSVb_JetSubCalc",1);
-   inputTree->SetBranchStatus("theJetCSVc_JetSubCalc",1);
-   inputTree->SetBranchStatus("theJetCSVudsg_JetSubCalc",1);
-   inputTree->SetBranchStatus("theJetCSVbb_JetSubCalc",1);
+   inputTree->SetBranchStatus("theJetDeepCSVb_JetSubCalc",1);
+   inputTree->SetBranchStatus("theJetDeepCSVc_JetSubCalc",1);
+   inputTree->SetBranchStatus("theJetDeepCSVudsg_JetSubCalc",1);
+   inputTree->SetBranchStatus("theJetDeepCSVbb_JetSubCalc",1);
    inputTree->SetBranchStatus("theJetBTag_JetSubCalc",1);
 
    inputTree->SetBranchStatus("theJetAK8Pt_JetSubCalc",1);
@@ -195,8 +208,30 @@ void step1::Loop()
    inputTree->SetBranchStatus("allTopsPt_TTbarMassCalc",1);
    inputTree->SetBranchStatus("allTopsID_TTbarMassCalc",1);
    inputTree->SetBranchStatus("allTopsStatus_TTbarMassCalc",1);
-   inputTree->SetBranchStatus("isTT_TTbarMassCalc",1);
 
+   inputTree->SetBranchStatus("topEnergy_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topEta_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topMass_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topPhi_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topPt_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topID_TTbarMassCalc",1);
+
+   //top W
+   inputTree->SetBranchStatus("topWEnergy_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topWEta_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topWPhi_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topWPt_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topWID_TTbarMassCalc",1);
+
+   //top b
+   inputTree->SetBranchStatus("topbEnergy_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topbEta_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topbPhi_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topbPt_TTbarMassCalc",1);
+   inputTree->SetBranchStatus("topbID_TTbarMassCalc",1);
+
+   inputTree->SetBranchStatus("isTT_TTbarMassCalc",1);
+   
   // ----------------------------------------------------------------------------
   // Create output tree and define branches
   // ----------------------------------------------------------------------------
@@ -240,10 +275,10 @@ void step1::Loop()
    outputTree->Branch("theJetEta_JetSubCalc_PtOrdered",&theJetEta_JetSubCalc_PtOrdered);
    outputTree->Branch("theJetPhi_JetSubCalc_PtOrdered",&theJetPhi_JetSubCalc_PtOrdered);
    outputTree->Branch("theJetEnergy_JetSubCalc_PtOrdered",&theJetEnergy_JetSubCalc_PtOrdered);
-   outputTree->Branch("theJetCSVb_JetSubCalc_PtOrdered",&theJetCSVb_JetSubCalc_PtOrdered);
-   outputTree->Branch("theJetCSVbb_JetSubCalc_PtOrdered",&theJetCSVbb_JetSubCalc_PtOrdered);
-   outputTree->Branch("theJetCSVc_JetSubCalc_PtOrdered",&theJetCSVc_JetSubCalc_PtOrdered);
-   outputTree->Branch("theJetCSVudsg_JetSubCalc_PtOrdered",&theJetCSVudsg_JetSubCalc_PtOrdered);
+   outputTree->Branch("theJetDeepCSVb_JetSubCalc_PtOrdered",&theJetDeepCSVb_JetSubCalc_PtOrdered);
+   outputTree->Branch("theJetDeepCSVbb_JetSubCalc_PtOrdered",&theJetDeepCSVbb_JetSubCalc_PtOrdered);
+   outputTree->Branch("theJetDeepCSVc_JetSubCalc_PtOrdered",&theJetDeepCSVc_JetSubCalc_PtOrdered);
+   outputTree->Branch("theJetDeepCSVudsg_JetSubCalc_PtOrdered",&theJetDeepCSVudsg_JetSubCalc_PtOrdered);
    outputTree->Branch("theJetHFlav_JetSubCalc_PtOrdered",&theJetHFlav_JetSubCalc_PtOrdered);
    outputTree->Branch("theJetPFlav_JetSubCalc_PtOrdered",&theJetPFlav_JetSubCalc_PtOrdered);
    outputTree->Branch("theJetBTag_JetSubCalc_PtOrdered",&theJetBTag_JetSubCalc_PtOrdered);
@@ -307,7 +342,8 @@ void step1::Loop()
    outputTree->Branch("theJetAK8Wmatch_JetSubCalc_PtOrdered",&theJetAK8Wmatch_JetSubCalc_PtOrdered);
    outputTree->Branch("theJetAK8Tmatch_JetSubCalc_PtOrdered",&theJetAK8Tmatch_JetSubCalc_PtOrdered);
    outputTree->Branch("theJetAK8MatchedPt_JetSubCalc_PtOrdered",&theJetAK8MatchedPt_JetSubCalc_PtOrdered);
-
+   outputTree->Branch("theJetAK8Indx_Wtagged",&theJetAK8Indx_Wtagged);
+   
    outputTree->Branch("BJetLeadPt",&BJetLeadPt,"BJetLeadPt/F");
    outputTree->Branch("WJetLeadPt",&WJetLeadPt,"WJetLeadPt/F");
    outputTree->Branch("TJetLeadPt",&TJetLeadPt,"TJetLeadPt/F");
@@ -318,6 +354,38 @@ void step1::Loop()
    outputTree->Branch("minDR_leadAK8otherAK8",&minDR_leadAK8otherAK8,"minDR_leadAK8otherAK8/F");
    outputTree->Branch("minDR_lepAK8",&minDR_lepAK8,"minDR_lepAK8/F");
    outputTree->Branch("deltaR_lepAK8s",&deltaR_lepAK8s);
+
+   outputTree->Branch("genPt_singleLepCalc",&genPt_singleLepCalc);
+   outputTree->Branch("genEta_singleLepCalc",&genEta_singleLepCalc);
+   outputTree->Branch("genPhi_singleLepCalc",&genPhi_singleLepCalc);
+   outputTree->Branch("genEnergy_singleLepCalc",&genEnergy_singleLepCalc);
+   outputTree->Branch("genStatus_singleLepCalc",&genStatus_singleLepCalc);
+   outputTree->Branch("genID_singleLepCalc",&genID_singleLepCalc);
+   outputTree->Branch("genJetPt_singleLepCalc",&genJetPt_singleLepCalc);                  
+   outputTree->Branch("genJetEta_singleLepCalc",&genJetEta_singleLepCalc);                     
+   outputTree->Branch("genJetPhi_singleLepCalc",&genJetPhi_singleLepCalc);                  
+   outputTree->Branch("genJetEnergy_singleLepCalc",&genJetEnergy_singleLepCalc);                  
+      
+
+   outputTree->Branch("topEnergy_TTbarMassCalc",&topEnergy_TTbarMassCalc);
+   outputTree->Branch("topEta_TTbarMassCalc",&topEta_TTbarMassCalc);
+   outputTree->Branch("topMass_TTbarMassCalc",&topMass_TTbarMassCalc);
+   outputTree->Branch("topPhi_TTbarMassCalc",&topPhi_TTbarMassCalc);   
+   outputTree->Branch("topPt_TTbarMassCalc",&topPt_TTbarMassCalc);      
+   outputTree->Branch("topID_TTbarMassCalc",&topID_TTbarMassCalc);         
+
+   outputTree->Branch("topWEnergy_TTbarMassCalc",&topWEnergy_TTbarMassCalc);
+   outputTree->Branch("topWEta_TTbarMassCalc",&topWEta_TTbarMassCalc);
+   outputTree->Branch("topWPhi_TTbarMassCalc",&topWPhi_TTbarMassCalc);
+   outputTree->Branch("topWPt_TTbarMassCalc",&topWPt_TTbarMassCalc);   
+   outputTree->Branch("topWID_TTbarMassCalc",&topWID_TTbarMassCalc);      
+
+   outputTree->Branch("topbEnergy_TTbarMassCalc",&topbEnergy_TTbarMassCalc);
+   outputTree->Branch("topbEta_TTbarMassCalc",&topbEta_TTbarMassCalc);
+   outputTree->Branch("topbPhi_TTbarMassCalc",&topbPhi_TTbarMassCalc);
+   outputTree->Branch("topbPt_TTbarMassCalc",&topbPt_TTbarMassCalc);   
+   outputTree->Branch("topbID_TTbarMassCalc",&topbID_TTbarMassCalc);      
+
 
   // ----------------------------------------------------------------------------
   // Define and initialize objects / cuts / efficiencies
@@ -983,10 +1051,10 @@ void step1::Loop()
       theJetEta_JetSubCalc_PtOrdered.clear();
       theJetPhi_JetSubCalc_PtOrdered.clear();
       theJetEnergy_JetSubCalc_PtOrdered.clear();
-      theJetCSVb_JetSubCalc_PtOrdered.clear();
-      theJetCSVbb_JetSubCalc_PtOrdered.clear();
-      theJetCSVc_JetSubCalc_PtOrdered.clear();
-      theJetCSVudsg_JetSubCalc_PtOrdered.clear();
+      theJetDeepCSVb_JetSubCalc_PtOrdered.clear();
+      theJetDeepCSVbb_JetSubCalc_PtOrdered.clear();
+      theJetDeepCSVc_JetSubCalc_PtOrdered.clear();
+      theJetDeepCSVudsg_JetSubCalc_PtOrdered.clear();
       theJetHFlav_JetSubCalc_PtOrdered.clear();
       theJetPFlav_JetSubCalc_PtOrdered.clear();
       theJetBTag_JetSubCalc_PtOrdered.clear();
@@ -995,10 +1063,10 @@ void step1::Loop()
       	theJetEta_JetSubCalc_PtOrdered.push_back(theJetEta_JetSubCalc->at(jetptindpair[ijet].second));
       	theJetPhi_JetSubCalc_PtOrdered.push_back(theJetPhi_JetSubCalc->at(jetptindpair[ijet].second));
       	theJetEnergy_JetSubCalc_PtOrdered.push_back(theJetEnergy_JetSubCalc->at(jetptindpair[ijet].second));
-      	theJetCSVb_JetSubCalc_PtOrdered.push_back(theJetCSVb_JetSubCalc->at(jetptindpair[ijet].second));
-		theJetCSVbb_JetSubCalc_PtOrdered.push_back(theJetCSVbb_JetSubCalc->at(jetptindpair[ijet].second));
-		theJetCSVc_JetSubCalc_PtOrdered.push_back(theJetCSVc_JetSubCalc->at(jetptindpair[ijet].second));
-		theJetCSVudsg_JetSubCalc_PtOrdered.push_back(theJetCSVudsg_JetSubCalc->at(jetptindpair[ijet].second));
+      	theJetDeepCSVb_JetSubCalc_PtOrdered.push_back(theJetDeepCSVb_JetSubCalc->at(jetptindpair[ijet].second));
+		theJetDeepCSVbb_JetSubCalc_PtOrdered.push_back(theJetDeepCSVbb_JetSubCalc->at(jetptindpair[ijet].second));
+		theJetDeepCSVc_JetSubCalc_PtOrdered.push_back(theJetDeepCSVc_JetSubCalc->at(jetptindpair[ijet].second));
+		theJetDeepCSVudsg_JetSubCalc_PtOrdered.push_back(theJetDeepCSVudsg_JetSubCalc->at(jetptindpair[ijet].second));
       	theJetHFlav_JetSubCalc_PtOrdered.push_back(theJetHFlav_JetSubCalc->at(jetptindpair[ijet].second));
       	theJetPFlav_JetSubCalc_PtOrdered.push_back(theJetPFlav_JetSubCalc->at(jetptindpair[ijet].second));
 		theJetBTag_JetSubCalc_PtOrdered.push_back(theJetBTag_JetSubCalc->at(jetptindpair[ijet].second));
@@ -1135,6 +1203,7 @@ void step1::Loop()
       theJetAK8NjettinessTau1_JetSubCalc_PtOrdered.clear();
       theJetAK8NjettinessTau2_JetSubCalc_PtOrdered.clear();
       theJetAK8NjettinessTau3_JetSubCalc_PtOrdered.clear();
+      theJetAK8Indx_Wtagged.clear();
 
       for(unsigned int ijet=0; ijet < jetak8ptindpair.size(); ijet++){
       	theJetAK8Pt_JetSubCalc_PtOrdered.push_back(theJetAK8Pt_JetSubCalc->at(jetak8ptindpair[ijet].second));
@@ -1354,6 +1423,7 @@ void step1::Loop()
 	  
 	  // Set the initial tagged/untagged state
 	  bool isPWtagged = (massSD > 65) && (massSD < 105) && (tau21 < 0.45) && (theJetAK8Pt_JetSubCalc_PtOrdered.at(ijet) >= 200);
+	  if(isPWtagged) { theJetAK8Indx_Wtagged.push_back(ijet); }
 	  bool isPWtagged_JMSup = (massSD_JMSup > 65) && (massSD_JMSup < 105) && (tau21 < 0.45) && (theJetAK8Pt_JetSubCalc_PtOrdered.at(ijet) >= 200);
 	  bool isPWtagged_JMSdn = (massSD_JMSdn > 65) && (massSD_JMSdn < 105) && (tau21 < 0.45) && (theJetAK8Pt_JetSubCalc_PtOrdered.at(ijet) >= 200);
 	  bool isPWtagged_JMRup = (massSD_JMRup > 65) && (massSD_JMRup < 105) && (tau21 < 0.45) && (theJetAK8Pt_JetSubCalc_PtOrdered.at(ijet) >= 200);
@@ -1401,6 +1471,7 @@ void step1::Loop()
 	  theJetAK8Tmatch_JetSubCalc_PtOrdered.push_back(0);
 	  
 	  bool isWtagged = (massSD > 65) && (massSD < 105) && (tau21 < 0.55) && (theJetAK8Pt_JetSubCalc_PtOrdered.at(ijet) >= 200);
+	  if(isWtagged) { theJetAK8Indx_Wtagged.push_back(ijet); }
 	  bool isTtagged = (massSD > 105) && (massSD < 220) && (tau32 < 0.81) && (theJetAK8Pt_JetSubCalc_PtOrdered.at(ijet) >= 400);
 	  
 	  NPuppiWtagged_0p55 += isWtagged;
@@ -1471,7 +1542,7 @@ void step1::Loop()
 	deltaR_lepJets.push_back(lepton_lv.DeltaR(jet_lv));
 
         // FOR NOW DON'T USE THE SCALE FACTORS               **** NEED TO CHANGE TO DEEPCSV probb + probbb > 0.4941                          
-	if(theJetCSVb_JetSubCalc_PtOrdered.at(ijet) + theJetCSVbb_JetSubCalc_PtOrdered.at(ijet) > 0.4941){
+	if(theJetDeepCSVb_JetSubCalc_PtOrdered.at(ijet) + theJetDeepCSVbb_JetSubCalc_PtOrdered.at(ijet) > 0.4941){
           NJetsCSV_JetSubCalc += 1;
         }
 	// OK, we're back to using SFs
